@@ -1,9 +1,8 @@
 import React from 'react';
-import { Typography, Rating, Button, ButtonGroup, useMediaQuery, Grid, Box, Modal, CircularProgress } from '@mui/material';
-import { Movie as MovieIcon, Theaters, Language, PlusOne, Remove, ArrowBack, Favorite, FavoriteBorderOutlined } from '@mui/icons-material';
+import { Typography, Rating, Button, ButtonGroup, Grid, Box, CircularProgress } from '@mui/material';
+import { Movie as MovieIcon, Theaters, Language, Remove, ArrowBack, Favorite, FavoriteBorderOutlined } from '@mui/icons-material';
 import { Link, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import { selectedGenreOrCategory } from '../../features/currentGenreOrCategory';
 import useStyles from './styles';
 import { useGetMovieQuery, useGetRecommenmoviesQuery } from '../../service/TMDB';
@@ -67,7 +66,7 @@ function MovieInformation() {
           </Typography>
         </Grid>
         <Grid item className={classes.genresContainer}>
-          {data?.genres.map((genre, i) => (
+          {data?.genres.map((genre) => (
             <Link className={classes.links} key={genre.name} to="/" onClick={() => { dispatch(selectedGenreOrCategory(genre.id)); }}>
               <Typography variant="subtitle1" color="textPrimary">
                 {genre.name}

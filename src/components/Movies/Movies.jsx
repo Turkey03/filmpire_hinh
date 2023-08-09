@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Typography, useMediaQuery, CircularProgress, Grid } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Typography, CircularProgress } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useGetMoviePopularQuery } from '../../service/TMDB';
 import { MovieList, Pagination } from '..';
-import { selectedGenreOrCategory } from '../../features/currentGenreOrCategory';
 
 function Movies() {
   const currentPage = 1;
